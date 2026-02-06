@@ -334,7 +334,7 @@
 <script>
     const myModal = new bootstrap.Modal('#staticBackdrop');
     let replyId = null;
-    let mainURL = "https://app.nirbytes.net/server.php";
+    let mainURL = "http://localhost:8000/server.php";
 
     const root = document.documentElement;
 root.style.setProperty('--theme', 'red'); // Cha
@@ -370,7 +370,10 @@ root.style.setProperty('--theme2', 'red'); // Cha
             url: mainURL+"?"+queryString,
             method: "GET",
             success: function(r){
-                if(r==1)window.location.reload();
+                if(r==1){
+                    alert('Reply successfully added!!');
+                    window.location.reload();
+                }
                // $('#replyForm').trigger('reset');
             }
         })
@@ -387,7 +390,11 @@ root.style.setProperty('--theme2', 'red'); // Cha
             url: mainURL+"?"+data,
             method: "GET",
             success:function(r){
-               if(r == 1)  window.location.reload();
+               if(r == 1) {
+                alert('Comment successfully added!!');
+                window.location.reload();
+
+               }
             }
         });
     })
